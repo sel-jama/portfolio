@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My portfolio</title>
+    <link rel="stylesheet" href="style2.css">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+
+</head>
+<body>
+    <!-- Hero Section -->
+    <section id="hero" class="parallax">
+
+        <div id="particles-js"></div>
+        <div class="hero-content">
+            <div class="intro-photo-container">
+                <div id="rec_background"></div>
+                <img src="images/salma.png" alt="Salma" class="intro-photo">
+            </div>
+            
+            <h1 class="hero-title">Hi, I'm Salma</h1>
+            <h2 class="hero-subtitle">Full-Stack Developer & Digital Architect</h2>
+            <div class="typewriter" id="typewriter"></div>
+        </div>
+        <button class="explore_btn"><a href="#about">Explore My Universe</a></button>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="parallax">
+        <div class="particles" id="aboutParticles"></div>
+        <div class="about-container">
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p>I’m Salma El Jamali, a software developer with a strong foundation in system-level programming and a passion for building reliable, user-focused solutions.</p>
+                <p>I’ve developed projects ranging from a complete HTTP server to a functional Unix shell, applying low-level programming skills to solve complex challenges efficiently.</p>
+                <p>Trained at 1337 School and grounded in the analytical rigor of MIPC studies, I’ve worked across the stack — from low-level C and system tools to modern web technologies like React, Next.js, and Docker.</p>
+                <p>I believe great software should be clean, intuitive, and purposeful. I’m driven by challenges and constantly looking to grow through hands-on experience and collaboration.</p>
+
+            </div>
+            <div class="skills-grid">
+                <div class="skill-item">React.js</div>
+                <div class="skill-item">Node.js</div>
+                <div class="skill-item">TypeScript</div>
+                <div class="skill-item">JavaScript</div>
+                <div class="skill-item">Docker</div>
+                <div class="skill-item">Git</div>
+                <div class="skill-item">C/C++</div>
+                <div class="skill-item">PostgreSQL</div>
+                <div class="skill-item">HTML/CSS</div>
+ 
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects" class="parallax">
+        <div class="projects-container">
+            <h2 class="section-title">Selected Works</h2>
+            <div class="project-cards">
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('images/webserv.png');"></div>
+                    <div class="project-content">
+                        <h3 class="project-title">WebServ</h3>
+                        <p>This project is about writing your own HTTP server.
+                            You will be able to test it with an actual browser.
+                            HTTP is one of the most used protocols on the internet.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">C++</span>
+                            <span class="tech-tag">Makefile</span>
+                            <span class="tech-tag">CGI</span>
+                            <span class="tech-tag">NGINX</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('images/inception.jpg');"></div>
+                    <div class="project-content">
+                        <h3 class="project-title">Inception</h3>
+                        <p>A System Administration related exercise.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Kubernetes</span>
+                            <span class="tech-tag">VM</span>
+                            <span class="tech-tag">WordPress</span>
+                            <span class="tech-tag">MariaDB</span>
+                            <span class="tech-tag">Nginx</span>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('images/ft_transcendence.png');"></div>
+                    <div class="project-content">
+                        <h3 class="project-title">ft_transcendence</h3>
+                        <p>A website for the mighty Pong contest!.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">HTML/CSS</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">HTTPS</span>
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">SPA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="parallax">
+        <div class="contact-container">
+            <h2 class="section-title">Initiate Connection</h2>
+            <p>Ready to discuss your next project or just want to talk tech? Reach out through any of these channels:</p>
+            <div class="contact-links">
+                <a href="mailto:eljamalisalma19@gmail.com" class="contact-link">
+                    <span>Email</span>
+                </a>
+                <a href="https://github.com/sel-jama" target="_blank" class="contact-link">
+                    <span>GitHub</span>
+                </a>
+                <a href="https://www.linkedin.com/in/salma-el-jamali-124855258/" target="_blank" class="contact-link">
+                    <span>LinkedIn</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        // Typewriter Effect
+        const typewriterText = [
+            "Building digital ecosystems...",
+            "Crafting seamless experiences...",
+            "Engineering web solutions...",
+            "Transforming ideas into reality..."
+        ];
+        
+        let currentText = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let isEnd = false;
+        
+        function typeWriter() {
+            const element = document.getElementById('typewriter');
+            const fullText = typewriterText[currentText];
+            
+            if (isDeleting) {
+                element.textContent = fullText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                element.textContent = fullText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+            
+            if (!isDeleting && charIndex === fullText.length) {
+                isEnd = true;
+                isDeleting = true;
+                setTimeout(typeWriter, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                currentText = (currentText + 1) % typewriterText.length;
+                setTimeout(typeWriter, 500);
+            } else {
+                const speed = isDeleting ? 50 : 100;
+                setTimeout(typeWriter, speed);
+            }
+        }
+
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 80 },
+                color: { value: "#6e00ff" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5 },
+                size: { value: 3 },
+                move: { enable: true, speed: 1.5 }
+            },
+            interactivity: {
+                events: { onhover: { enable: true, mode: "repulse" } }
+            }
+        });
+
+        
+        window.onload = function() {
+            typeWriter();
+            createTechIcons();
+            createParticles();
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        };
+
+        let baseSpeed = 1.5;
+
+window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    const speed = baseSpeed + scrollY * 0.002;
+
+    if (window.pJSDom && window.pJSDom[0]) {
+        window.pJSDom[0].pJS.particles.move.speed = speed;
+    }
+});
+
+window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    const newOpacity = Math.max(0.2, 1 - scrollY / 1000); // fades out slowly
+    const newSpeed = baseSpeed + scrollY * 0.002;
+
+    if (window.pJSDom && window.pJSDom[0]) {
+        const pJS = window.pJSDom[0].pJS;
+        pJS.particles.move.speed = newSpeed;
+        pJS.particles.opacity.value = newOpacity;
+        pJS.fn.particlesRefresh(); // apply changes
+    }
+});
+
+        
+    </script>
+</body>
+</html>
